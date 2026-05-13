@@ -9,15 +9,13 @@ builder.Services.AddDbContext<SchoolContext>(options =>
    options.UseNpgsql(builder.Configuration.GetConnectionString("SchoolContext")));
 
 var app = builder.Build();
-
-
 using (var scope = app.Services.CreateScope())
 {
    var services = scope.ServiceProvider;
    try
    {
        var context = services.GetRequiredService<SchoolContext>();
-       context.Database.Migrate();
+        var created = context.Database.Migrate();
 
    }
    catch (Exception ex)
