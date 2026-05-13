@@ -31,7 +31,7 @@ services:
     # environment:
     #   - ASPNETCORE_ENVIRONMENT=Development
   db:
-    image: postgres
+    image: postgres:16
     restart: always
     user: postgres
     secrets:
@@ -39,6 +39,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
+      - POSTGRES_USER=postgres
       - POSTGRES_DB=example
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
     expose:
