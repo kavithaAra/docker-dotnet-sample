@@ -15,7 +15,7 @@ using (var scope = app.Services.CreateScope())
    try
    {
        var context = services.GetRequiredService<SchoolContext>();
-        var created = context.Database.Migrate();
+       context.Database.Migrate();
 
    }
    catch (Exception ex)
