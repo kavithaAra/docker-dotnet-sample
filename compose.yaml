@@ -31,13 +31,13 @@ services:
     # environment:
     #   - ASPNETCORE_ENVIRONMENT=Development
   db:
-    image: postgres:16
+    image: postgres
     restart: always
     user: postgres
     secrets:
       - db-password
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=example
